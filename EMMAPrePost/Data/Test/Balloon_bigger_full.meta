@@ -1,0 +1,17 @@
+point p0 (0, 0); 
+point p1 (100, 0); 
+point p2 (100, 0.5); 
+point p3 (95.5, 5); 
+point p4 (95.5, 5); 
+point p5 (0, 5); 
+point p6 (0, 0); 
+point p7 (100, 0.5); 
+point p8 (100, 0); 
+
+line L0 (p0, p1); 
+arc A1 (p2, p3, 4.5); 
+line L2 (p4, p5); 
+line L3 (p5, p6); 
+line L4 (p7, p8); 
+
+contour Loop0(L0, A1, L2, L3, L4);
