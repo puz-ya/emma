@@ -5,32 +5,31 @@ EMMAPrePost/.vs/
 EMMAPrePost/Debug/
 EMMAPrePost/EMMAPrePost/Debug/
 EMMAPrePost/EMMAPrePost/hlp/
-EMMAPrePost/EMMAPrePost/res/icons_VS2015 Image Library.zip
-EMMAPrePost/EMMAPrePost/res/icons_fugue-icons-3.5.6.zip
-EMMAPrePost/EMMAPrePost/res/VisualStudioImageLibrary2015_Icons.pdf
 EMMAPrePost/EMMAPrePost/Release/
 EMMAPrePost/EMMAPrePost/x64/
-EMMAPrePost/EMMAPrePost.VC.VC.opendb
-EMMAPrePost/EMMAPrePost.VC.db
 EMMAPrePost/ipch/
 EMMAPrePost/Release/
 EMMAPrePost/x64/
 
 #EmmaServer
+EMMASrv/.vs/
+EMMASrv/Debug/
 EMMASrv/EMMASrv/Debug/
 EMMASrv/EMMASrv/Release/
-EMMASrv/EMMASrv/Calculations/
-EMMASrv/Release/
+EMMASrv/EMMASrv/x64/
 EMMASrv/ipch/
+EMMASrv/Release/
+EMMASrv/x64/
 
 #Service info
 Logs/
-docs/
-Dump/
+Docs/
 *.smproj
 *.db
 *.sdf
-
+*.aps
+*.opendb
+*.db
 
 # Compiled Object files
 *.slo
