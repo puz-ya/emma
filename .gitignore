@@ -27,6 +27,7 @@ Docs/
 *.smproj
 *.db
 *.sdf
+*.suo
 *.aps
 *.opendb
 *.db
