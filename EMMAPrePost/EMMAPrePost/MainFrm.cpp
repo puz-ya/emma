@@ -112,8 +112,8 @@ BEGIN_MESSAGE_MAP(CMainFrame, CMDIFrameWndEx)
 
 	ON_COMMAND(ID_NEW_MESHPOINT, &CMainFrame::OnNewMeshPoint)
 	ON_UPDATE_COMMAND_UI(ID_NEW_MESHPOINT, &CMainFrame::OnUpdateMesherDoc)
-	ON_BN_CLICKED(ID_UPDATE_CONTOUR, &CMainFrame::OnShowContours)
-	ON_UPDATE_COMMAND_UI(ID_UPDATE_CONTOUR, &CMainFrame::OnUpdateMesherDoc)
+	//ON_BN_CLICKED(ID_UPDATE_CONTOUR, &CMainFrame::OnShowContours)
+	//ON_UPDATE_COMMAND_UI(ID_UPDATE_CONTOUR, &CMainFrame::OnUpdateMesherDoc)
 
 	//Builder
 	ON_COMMAND(ID_BUILD_SAVE, &CMainFrame::OnBuilderSave)
@@ -494,7 +494,12 @@ void CMainFrame::OnSaveSketchToMeta() {
 
 void CMainFrame::OnSetContours() {
 	I2DSketch* pSketch = GetCurDoc() ? dynamic_cast<I2DSketch*> (GetCurDoc()) : nullptr;
-	pSketch->SetContours();
+	if (pSketch) {
+		pSketch->SetContours();
+	}
+	else {
+		CDlgShowError Diag_err(ID_ERROR_2DSPECIMEN_SKETCH_NULL);	//Показываем окно ошибки
+	}
 }
 
 /////////////////
@@ -580,6 +585,7 @@ void CMainFrame::OnNewMesher() {
 	
 }
 
+/*
 void CMainFrame::OnShowContours() {
 
 	CEMMADoc *pCurDoc = GetCurDoc();
@@ -596,6 +602,7 @@ void CMainFrame::OnShowContours() {
 	else
 		CDlgShowError Diag_err(ID_ERROR_2DMESHERPANE_NO_CONTOURS); //_T("Contours not found."));	//Показываем окно ошибки
 }
+*/
 
 void CMainFrame::OnNewMeshPoint() {
 

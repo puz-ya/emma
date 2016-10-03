@@ -154,7 +154,7 @@ public:
 	afx_msg void OnUpdateSetCursorCheck(CCmdUI* pCmdUI, int nType);
 	afx_msg void OnUpdateSketchToolTrajectoryDoc(CCmdUI *pCmdUI);	// Метод для включения кнопок Чертежа, Инструмента, Траектории
 	afx_msg void OnSaveSketchToMeta();	//Сохранение всего чертежа в meta-файл
-	afx_msg void OnEnableButtonSave(CCmdUI *pCmdUI);
+	//afx_msg void OnEnableButtonSave(CCmdUI *pCmdUI);
 	afx_msg void OnSetContours();
 
 	// Категория КЭ сетка
@@ -169,7 +169,7 @@ public:
 	//afx_msg void OnUpdateNewMeshPoint(CCmdUI *pCmdUI);
 	afx_msg void OnImportSketch();
 	//afx_msg void OnUpdateImportSketch(CCmdUI *pCmdUI);
-	afx_msg void OnShowContours();
+	//afx_msg void OnShowContours();
 	//afx_msg void OnUpdateShowContours(CCmdUI *pCmdUI);
 	
 

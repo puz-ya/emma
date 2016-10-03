@@ -26,8 +26,8 @@ BEGIN_MESSAGE_MAP(C2DMeshPane, CEMMARightPane)
 	//ON_COMMAND(ID_IMPORT_SKETCH, &C2DMeshPane::OnImportSketch)
 	//ON_UPDATE_COMMAND_UI(ID_IMPORT_SKETCH, &C2DMeshPane::OnUpdateImportSketch)
 
-	ON_BN_CLICKED(ID_UPDATE_CONTOUR, C2DMeshPane::ShowContours)
-	ON_UPDATE_COMMAND_UI(ID_UPDATE_CONTOUR, C2DMeshPane::OnEnableButton)
+	//ON_BN_CLICKED(ID_UPDATE_CONTOUR, C2DMeshPane::ShowContours)
+	//ON_UPDATE_COMMAND_UI(ID_UPDATE_CONTOUR, C2DMeshPane::OnEnableButton)
 
 END_MESSAGE_MAP()
 
@@ -56,7 +56,7 @@ int C2DMeshPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // fail to create
 	}
 	
-	CString str4button;
+	/*CString str4button;
 	str4button.LoadStringW(ID_UPDATE_CONTOUR);	//text on the button
 	if (!m_button_contour.Create(str4button, WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON, rectDummy, this, ID_UPDATE_CONTOUR)) {
 		CDlgShowError cError(ID_ERROR_2DMESHERPANE_FAIL_BUTTON); //_T("Failed to create Button \n"));
@@ -64,7 +64,7 @@ int C2DMeshPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	//устанавливаем такой же шрифт, как в таблице свойств
 	m_button_contour.SetFont(m_wndPropList.GetFont());
-
+	*/
 	SetColumnNames();
 	AdjustLayout();
 
