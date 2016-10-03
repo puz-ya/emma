@@ -11,7 +11,7 @@ BEGIN_MESSAGE_MAP(C2DTrajectoryPane, CEMMARightPane)
 	ON_WM_SIZE()
 
 	////Roma
-	ON_REGISTERED_MESSAGE(AFX_WM_PROPERTY_CHANGED,C2DTrajectoryPane::OnPropertyChanged)
+	//ON_REGISTERED_MESSAGE(AFX_WM_PROPERTY_CHANGED,C2DTrajectoryPane::OnPropertyChanged)
 	
 	
 	////TOOLBAR

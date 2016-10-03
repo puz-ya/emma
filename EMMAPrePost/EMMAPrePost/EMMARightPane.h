@@ -33,9 +33,10 @@ public:
 	CEMMARightPane(size_t nID) :CEMMADockablePane(nID) { m_cursor = 0; };
 	~CEMMARightPane(void);
 
-	CMFCPropertyGridCtrl m_wndPropList;
+	CMFCPropertyGridCtrl m_wndPropList;	//таблица свойств
 	CRightToolBar m_wndToolBar;
 	int m_cursor; //тип курсора
+	CButton m_buttonApply;	//применение изменений после обновление значений по кнопке
 
 	virtual void UpdatePane();		//! Обновляем правую панель с данными
 	int OnEraseBkgnd(CDC* pDC);	//! На случай, если OnPaint() не сработает
@@ -46,7 +47,6 @@ public:
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnPaint();
 	afx_msg void OnSize(UNINT nType, int cx, int cy);
-	afx_msg LRESULT OnPropertyChanged(__in WPARAM wparam, __in LPARAM lparam);
-	afx_msg LRESULT OnUpdateRightPanes(WPARAM wParam, LPARAM lParam);
+
 };
 

@@ -493,9 +493,10 @@ void CMainFrame::OnSaveSketchToMeta() {
 
 
 void CMainFrame::OnSetContours() {
-	I2DSketch* pSketch = GetCurDoc() ? dynamic_cast<I2DSketch*> (GetCurDoc()) : nullptr;
-	if (pSketch) {
-		pSketch->SetContours();
+	I2DSketch* pI2DSketch = GetCurDoc() ? dynamic_cast<I2DSketch*> (GetCurDoc()) : nullptr;
+	if (pI2DSketch) {
+		pI2DSketch->ClearActiveObjects();
+		pI2DSketch->SetContours();
 	}
 	else {
 		CDlgShowError Diag_err(ID_ERROR_2DSPECIMEN_SKETCH_NULL);	//Показываем окно ошибки

@@ -14,8 +14,8 @@ public:
 	}
 	virtual ~C2DSketchPane(void);
 
-	CButton m_button_contour;
-	CButton m_button_save_to_meta;
+	//CButton m_button_contour;
+	//CButton m_button_save_to_meta;
 
 public:
 
@@ -44,11 +44,16 @@ public:
 	afx_msg void OnNewFacet();
 	afx_msg void OnUpdateNewFacet(CCmdUI *pCmdUI);
 
+	//Применение изменений в таблице свойств
+	afx_msg void ButtonApply();
+	afx_msg void OnEnableButtonApply(CCmdUI *pCmdUI);
+
 	//Button
-	afx_msg void ShowContours();
-	afx_msg void OnEnableButton(CCmdUI *pCmdUI);
+	//afx_msg void ShowContours();
+	//afx_msg void OnEnableButton(CCmdUI *pCmdUI);
 
 	//Сохранение всего чертежа в meta-файл
-	afx_msg void SaveSketchToMeta();
-	afx_msg void OnEnableButtonSave(CCmdUI *pCmdUI);
+	//afx_msg void SaveSketchToMeta();
+	//afx_msg void OnEnableButtonSave(CCmdUI *pCmdUI);
+
 };

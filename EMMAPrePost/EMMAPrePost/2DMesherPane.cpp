@@ -11,7 +11,7 @@ BEGIN_MESSAGE_MAP(C2DMeshPane, CEMMARightPane)
 	ON_WM_SIZE()
 
 	////Roma
-	ON_REGISTERED_MESSAGE(AFX_WM_PROPERTY_CHANGED,C2DMeshPane::OnPropertyChanged)
+	//ON_REGISTERED_MESSAGE(AFX_WM_PROPERTY_CHANGED,C2DMeshPane::OnPropertyChanged)
 	
 	////TOOLBAR
 	ON_COMMAND(ID_CLEAR_MESH, &C2DMeshPane::OnClearMesh)
@@ -89,7 +89,7 @@ void C2DMeshPane::AdjustLayout(void){
 	int cyPropList = rectClient.top + cyTlb + (rectClient.Height() - cyTlb) / 2 + 10;
 	int nFromLeft = rectClient.left + int(rectClient.Width() / 5.0);
 	int nFromRight = rectClient.Width() - int(rectClient.Width() / 5.0) * 2;	//обязательное умножение, чтобы был отступ справа
-	m_button_contour.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
+	//m_button_contour.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
 }
 
 C2DOutline* C2DMeshPane::GetOutline(){

@@ -15,7 +15,7 @@ public:
 	}
 	virtual ~C2DMeshPane(void);
 
-	CButton m_button_contour;
+	//CButton m_button_contour;
 
 public:
 
