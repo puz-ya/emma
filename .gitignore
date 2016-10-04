@@ -23,7 +23,6 @@ EMMASrv/x64/
 
 #Service info
 Logs/
-Docs/
 *.smproj
 *.db
 *.sdf
@@ -62,3 +61,5 @@ Docs/
 *.out
 *.app
 EMMAPrePost/enc_temp_folder/
+Docs/000 Trello-TaskBoard/
+Docs/UI & Design/
