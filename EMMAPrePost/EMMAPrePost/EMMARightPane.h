@@ -42,11 +42,13 @@ public:
 	int OnEraseBkgnd(CDC* pDC);	//! На случай, если OnPaint() не сработает
 
 	void SetColumnNames(void);	//! Устанавливаем заголовки для колонок таблицы
+	int CreateApplyButton(CRect rectDummy);	//! Создаём кнопку для таблицы свойств
 
 	//
 	DECLARE_MESSAGE_MAP()
 	afx_msg void OnPaint();
 	afx_msg void OnSize(UNINT nType, int cx, int cy);
+	afx_msg void OnEnableButtonApply(CCmdUI *pCmdUI);	//для всех панелей
 
 };
 

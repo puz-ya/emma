@@ -147,8 +147,8 @@ CMFCPropertyGridProperty* C2DMesher::AddProp(CStringW name, double eval, size_t 
 
 	CMFCPropertyGridProperty *pProp = new CMFCPropertyGridProperty(name, eval, name);	//The group name, DATA, Description
 	pProp->SetData(pos);	//устанавливает свойство в нужную позицию
-	if (pos == 3) pProp->AllowEdit(0);	//кол-во эл-ов
-	if (pos == 4) pProp->AllowEdit(0);	//кол-во узлов
+	if (pos == 3) pProp->Enable(0);	//кол-во эл-ов
+	if (pos == 4) pProp->Enable(0);	//кол-во узлов
 	return pProp;
 }
 
@@ -171,7 +171,7 @@ void C2DMesher::FillPropList(CMFCPropertyGridCtrl *pGrid)
 
 }
 
-
+/*
 void C2DMesher::UpdateProp(double *pEval, UNLONG *pId)
 {
 	if( (pEval == 0) || (pId == 0)) return;
@@ -211,12 +211,14 @@ void C2DMesher::UpdateProp(double *pEval, UNLONG *pId)
 	InitialUpdateView();
 	//InitialUpdatePane();
 }
+//*/
 
 void C2DMesher::UpdatePropList(CMFCPropertyGridCtrl * pGrid)
 {
 	//кол-во строк в таблице свойств (для проверки)
 	int ncount = pGrid->GetPropertyCount();
 	
+	/*
 	//конвертируем в MS дурацкий формат для таблицы
 	COleVariant varElements((ULONGLONG) GetMesh()->GetElNum());
 	COleVariant varNodes((ULONGLONG)GetMesh()->GetNodesNum());
@@ -227,7 +229,7 @@ void C2DMesher::UpdatePropList(CMFCPropertyGridCtrl * pGrid)
 	pProperty->SetValue(&varElements);
 	CMFCPropertyGridProperty* pProperty2 = pGrid->GetProperty(1);
 	pProperty2->SetValue(&varNodes);
-	//*/
+	//
 	CMFCPropertyGridProperty* pProperty1 = pGrid->FindItemByData(3);
 	pProperty1->AllowEdit(0);
 	CMFCPropertyGridProperty* pProperty2 = pGrid->FindItemByData(4);
@@ -235,7 +237,7 @@ void C2DMesher::UpdatePropList(CMFCPropertyGridCtrl * pGrid)
 
 	pProperty1->SetValue(&varElements);
 	pProperty2->SetValue(&varNodes);
-
+	//*/
 }
 
 void C2DMesher::AddMeshPoint(Math::C2DPoint ppoint){

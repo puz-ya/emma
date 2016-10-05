@@ -2508,19 +2508,26 @@ Math::C2DRect C2DOutline::GetBoundingBox() {
 }
 
 bool C2DOutline::GetBoundingBox(CRect2D &rect) {
-	if (m_nodes().size() == 0 && m_curves().size() == 0) return false;
+	
+	if (m_nodes().size() == 0 && m_curves().size() == 0) {	//считаем, что Outline жив при наличии кривых
+		return false;
+	}
 
 	//Начальное состояние прямоугольника - вокруг первого узла
 	//Иначе сравниваем с прямоугольником (0,0,0,0).
 	rect = (dynamic_cast<C2DNode*>(m_nodes()[0]))->GetBoundingBox();
 
+	C2DRect tempRect;
 	//Добавляем оставшееся
 	for (size_t i = 0; i < m_nodes().size(); i++) {
-		rect.AddRect((dynamic_cast<C2DNode*>(m_nodes()[i]))->GetBoundingBox());
+		tempRect = (dynamic_cast<C2DNode*>(m_nodes()[i]))->GetBoundingBox();	//если dynamic_cast падает, то всё плохо
+		rect.AddRect(tempRect);
 	}
 
+	//Так как кривые могут выйти за рамки узлов (например дуги)
 	for (size_t i = 0; i < m_curves().size(); i++) {
-		rect.AddRect((dynamic_cast<C2DCurve*>(m_curves()[i]))->GetBoundingBox());
+		tempRect = (dynamic_cast<C2DCurve*>(m_curves()[i]))->GetBoundingBox();
+		rect.AddRect(tempRect);
 	}
 
 	return true;

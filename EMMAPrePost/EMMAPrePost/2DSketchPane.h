@@ -14,9 +14,6 @@ public:
 	}
 	virtual ~C2DSketchPane(void);
 
-	//CButton m_button_contour;
-	//CButton m_button_save_to_meta;
-
 public:
 
 	C2DSketch* GetSketch(){return m_pDoc ? dynamic_cast<C2DSketch*> (m_pDoc) : nullptr;}
@@ -44,11 +41,10 @@ public:
 	afx_msg void OnNewFacet();
 	afx_msg void OnUpdateNewFacet(CCmdUI *pCmdUI);
 
+	//Button
 	//Применение изменений в таблице свойств
 	afx_msg void ButtonApply();
-	afx_msg void OnEnableButtonApply(CCmdUI *pCmdUI);
 
-	//Button
 	//afx_msg void ShowContours();
 	//afx_msg void OnEnableButton(CCmdUI *pCmdUI);
 
