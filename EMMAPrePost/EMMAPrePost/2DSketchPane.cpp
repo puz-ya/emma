@@ -8,8 +8,7 @@ C2DSketchPane::~C2DSketchPane(void)
 
 BEGIN_MESSAGE_MAP(C2DSketchPane, CEMMARightPane)
 	ON_WM_CREATE()
-	ON_WM_SIZE()
-	ON_WM_PAINT()
+	//SIZE, PAINT, ERASEBKGND are in EMMARightPane
 
 	////TOOLBAR
 	ON_COMMAND(ID_CLEAR_SKETCH, &C2DSketchPane::OnClearSketch)
@@ -88,15 +87,15 @@ void C2DSketchPane::AdjustLayout(void){
 	int cyTlb = m_wndToolBar.CalcFixedLayout(0, 1).cy;	//высота тулбара 
 
 	//устанавливает размеры тулбара (справа)
-	m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
+	HDWP nSetToolbar = m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	//устанавливает размеры Таблицы свойств (справа)
-	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb, rectClient.Width(), (rectClient.Height() - cyTlb)/2, SWP_NOACTIVATE | SWP_NOZORDER);
+	int nSetPropList = m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb, rectClient.Width(), (rectClient.Height() - cyTlb)/2, SWP_NOACTIVATE | SWP_NOZORDER);
 	
 	//устанавливаем размеры Кнопки
 	int cyPropList = rectClient.top + cyTlb + (rectClient.Height() - cyTlb) / 2 + 10;	//чтобы не плотно +10
 	int nFromLeft = rectClient.left + int(rectClient.Width() / 5.0);
 	int nFromRight = rectClient.Width() - int(rectClient.Width() / 5.0)*2;	//обязательное умножение, чтобы был отступ справа
-	m_buttonApply.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
+	int nSetButton = m_buttonApply.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
 	//cyPropList += 20;
 	//m_button_save_to_meta.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
 }

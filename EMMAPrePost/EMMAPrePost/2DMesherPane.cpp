@@ -8,7 +8,7 @@ C2DMeshPane::~C2DMeshPane(void)
 
 BEGIN_MESSAGE_MAP(C2DMeshPane, CEMMARightPane)
 	ON_WM_CREATE()
-	ON_WM_SIZE()
+	//SIZE, PAINT, ERASEBKGND are in EMMARightPane
 	
 	////TOOLBAR
 	ON_COMMAND(ID_CLEAR_MESH, &C2DMeshPane::OnClearMesh)

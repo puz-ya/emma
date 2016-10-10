@@ -8,7 +8,7 @@ C2DTrajectoryPane::~C2DTrajectoryPane(void)
 
 BEGIN_MESSAGE_MAP(C2DTrajectoryPane, CEMMARightPane)
 	ON_WM_CREATE()
-	ON_WM_SIZE()
+	//SIZE, PAINT, ERASEBKGND are in EMMARightPane
 
 	////Roma
 	//ON_REGISTERED_MESSAGE(AFX_WM_PROPERTY_CHANGED,C2DTrajectoryPane::OnPropertyChanged)

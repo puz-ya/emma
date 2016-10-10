@@ -8,8 +8,7 @@ CMaterialPane::~CMaterialPane(void)
 
 BEGIN_MESSAGE_MAP(CMaterialPane, CEMMARightPane)
 	ON_WM_CREATE()
-	ON_WM_SIZE()
-	ON_WM_PAINT()
+	//SIZE, PAINT, ERASEBKGND are in EMMARightPane
 
 	//Buttons
 	ON_BN_CLICKED(ID_MATERIALPANE_BUTTON_REFRESH, CMaterialPane::RefreshText)

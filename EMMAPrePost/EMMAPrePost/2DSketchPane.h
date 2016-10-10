@@ -45,11 +45,4 @@ public:
 	//Применение изменений в таблице свойств
 	afx_msg void ButtonApply();
 
-	//afx_msg void ShowContours();
-	//afx_msg void OnEnableButton(CCmdUI *pCmdUI);
-
-	//Сохранение всего чертежа в meta-файл
-	//afx_msg void SaveSketchToMeta();
-	//afx_msg void OnEnableButtonSave(CCmdUI *pCmdUI);
-
 };
