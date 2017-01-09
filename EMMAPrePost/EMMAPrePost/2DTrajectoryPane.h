@@ -46,4 +46,8 @@ public:
 
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 
+	//Button
+	//Применение изменений в таблице свойств
+	afx_msg void ButtonApply();
+
 };

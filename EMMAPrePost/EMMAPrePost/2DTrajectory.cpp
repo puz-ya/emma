@@ -147,6 +147,12 @@ void C2DTrajectory::FillPropList(CMFCPropertyGridCtrl *pGrid){
 
 }
 
+//! Обновляем все поля таблицы свойств
+void C2DTrajectory::UpdatePropList(CMFCPropertyGridCtrl * pGrid) {
+	//TODO: 
+}
+
+/*
 //! Обновление параметров (правая панель)
 void C2DTrajectory::UpdateProp(double *pEval, UNLONG *pId){
 	
@@ -276,6 +282,8 @@ void C2DTrajectory::UpdateProp(double *pEval, UNLONG *pId){
 	InitialUpdateView();
 	InitialUpdatePane();
 }
+
+*/
 
 void C2DTrajectory::SetContours() {
 	C2DOutline *pOutline = GetOutline();

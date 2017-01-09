@@ -382,7 +382,7 @@ void CMainFrame::OnUpdateSetCursorCheck(CCmdUI* pCmdUI, int nType){
 		CWnd *pView = GetCurDoc()->GetView();
 		if (pView) {
 			CGLBasicView *pBasicView = dynamic_cast<CGLBasicView*>(GetCurDoc()->GetView());
-			if (pBasicView->GetCursorType() == nType) {
+			if ((pBasicView != nullptr) && pBasicView->GetCursorType() == nType) {
 				pCmdUI->SetCheck(1);
 			}
 			else {

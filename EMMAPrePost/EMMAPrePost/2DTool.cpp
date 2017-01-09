@@ -139,6 +139,12 @@ void C2DTool::ResetCountourCache(){
 
 }
 
+//! Обновляем все поля таблицы свойств
+void C2DTool::UpdatePropList(CMFCPropertyGridCtrl * pGrid) {
+	//TODO:
+}
+
+/*
 //! Обновление параметров (правая панель)
 void C2DTool::UpdateProp(double *pEval, UNLONG *pId){
 
@@ -234,6 +240,7 @@ void C2DTool::UpdateProp(double *pEval, UNLONG *pId){
 	InitialUpdateView();
 	InitialUpdatePane();
 }
+//*/
 
 void C2DTool::DrawGL(GLParam &parameter){
 

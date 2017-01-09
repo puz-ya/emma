@@ -106,7 +106,7 @@ namespace FemLibrary {
 		// 	throw exception("can't solve polynomial");
 
 		vector<double> res;
-		for (size_t i = 0; i < nroots; ++i)
+		for (int i = 0; i < nroots; ++i)
 			if (imag_roots[i] == 0.0)
 				res.emplace_back(real_roots[i]);
 		return res;

@@ -34,6 +34,10 @@ BEGIN_MESSAGE_MAP(C2DTrajectoryPane, CEMMARightPane)
 	ON_COMMAND(ID_PLAY, &C2DTrajectoryPane::OnPlay)
 	ON_UPDATE_COMMAND_UI(ID_PLAY, &C2DTrajectoryPane::OnUpdatePlay)
 
+	//Buttons
+	ON_BN_CLICKED(ID_RIGHTPANE_BUTTON_APPLY, C2DTrajectoryPane::ButtonApply)
+
+
 END_MESSAGE_MAP()
 
 int C2DTrajectoryPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -72,6 +76,12 @@ int C2DTrajectoryPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // fail to create
 	}
 
+	//creating Apply button for PropertyGrid
+	int nButton = CreateApplyButton(rectDummy);
+	if (nButton == -1) {
+		return -1;	//тут же выходим
+	}
+
 	SetColumnNames();
 	AdjustLayout();
 
@@ -91,7 +101,13 @@ void C2DTrajectoryPane::AdjustLayout(void){
 
 	m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndToolBar_sketch.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb, rectClient.Width(), cyTlb_sketch, SWP_NOACTIVATE | SWP_NOZORDER);
-	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb + cyTlb_sketch, rectClient.Width(), rectClient.Height() - cyTlb - cyTlb_sketch, SWP_NOACTIVATE | SWP_NOZORDER);
+	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb + cyTlb_sketch, rectClient.Width(), (rectClient.Height() - cyTlb - cyTlb_sketch) / 2, SWP_NOACTIVATE | SWP_NOZORDER);
+
+	//устанавливаем размеры Кнопки
+	int cyPropList = rectClient.top + cyTlb + cyTlb_sketch + (rectClient.Height() - cyTlb - cyTlb_sketch) / 2 + 10;	//чтобы не плотно +10
+	int nFromLeft = rectClient.left + int(rectClient.Width() / 5.0);
+	int nFromRight = rectClient.Width() - int(rectClient.Width() / 5.0) * 2;	//обязательное умножение, чтобы был отступ справа
+	int nSetButton = m_buttonApply.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
 }
 
 ////////TOOLBAR
@@ -220,4 +236,9 @@ void C2DTrajectoryPane::OnUpdatePlay(CCmdUI *pCmdUI){
 		pCmdUI->SetCheck(0);
 	}
 	//*/
+}
+
+void C2DTrajectoryPane::ButtonApply()
+{
+	m_pDoc->UpdatePropList(&m_wndPropList);
 }

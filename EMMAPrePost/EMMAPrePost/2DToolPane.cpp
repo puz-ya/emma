@@ -32,6 +32,9 @@ BEGIN_MESSAGE_MAP(C2DToolPane, CEMMARightPane)
 	ON_COMMAND(ID_NEW_TOOL_NODE, &C2DToolPane::OnNewToolNode)
 	ON_UPDATE_COMMAND_UI(ID_NEW_TOOL_NODE, &C2DToolPane::OnUpdateNewToolNode)
 
+	//Buttons
+	ON_BN_CLICKED(ID_RIGHTPANE_BUTTON_APPLY, C2DToolPane::ButtonApply)
+
 END_MESSAGE_MAP()
 
 int C2DToolPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -70,6 +73,12 @@ int C2DToolPane::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;      // fail to create
 	}
 
+	//creating Apply button for PropertyGrid
+	int nButton = CreateApplyButton(rectDummy);
+	if (nButton == -1) {
+		return -1;	//тут же выходим
+	}
+
 	SetColumnNames();
 	AdjustLayout();
 
@@ -89,7 +98,13 @@ void C2DToolPane::AdjustLayout(void){
 
 	m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndToolBar_sketch.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb, rectClient.Width(), cyTlb_sketch, SWP_NOACTIVATE | SWP_NOZORDER);
-	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb + cyTlb_sketch, rectClient.Width(), rectClient.Height() - cyTlb - cyTlb_sketch, SWP_NOACTIVATE | SWP_NOZORDER);
+	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + cyTlb + cyTlb_sketch, rectClient.Width(), (rectClient.Height() - cyTlb - cyTlb_sketch) / 2, SWP_NOACTIVATE | SWP_NOZORDER);
+
+	//устанавливаем размеры Кнопки
+	int cyPropList = rectClient.top + cyTlb + cyTlb_sketch + (rectClient.Height() - cyTlb - cyTlb_sketch) / 2 + 10;	//чтобы не плотно +10
+	int nFromLeft = rectClient.left + int(rectClient.Width() / 5.0);
+	int nFromRight = rectClient.Width() - int(rectClient.Width() / 5.0) * 2;	//обязательное умножение, чтобы был отступ справа
+	int nSetButton = m_buttonApply.SetWindowPos(nullptr, nFromLeft, cyPropList, nFromRight, 20, SWP_NOOWNERZORDER | SWP_SHOWWINDOW);
 }
 
 ////////TOOLBAR
@@ -192,4 +207,9 @@ void C2DToolPane::OnUpdateNewFacet(CCmdUI *pCmdUI){
 
 	if(m_cursor == 103) pCmdUI->SetCheck(1);
 	else pCmdUI->SetCheck(0);
+}
+
+void C2DToolPane::ButtonApply()
+{
+	m_pDoc->UpdatePropList(&m_wndPropList);
 }
