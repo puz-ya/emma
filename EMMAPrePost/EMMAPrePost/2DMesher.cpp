@@ -174,9 +174,15 @@ void C2DMesher::FillPropList(CMFCPropertyGridCtrl *pGrid)
 //! Обновляем все поля таблицы свойств
 void C2DMesher::UpdatePropList(CMFCPropertyGridCtrl * pGrid)
 {
+	if (pGrid == nullptr) {
+		CDlgShowError err(_T("CMFCPropertyGridCtrl is null"));
+		return;
+	}
+	
 	//кол-во строк в таблице свойств (для проверки)
 	int nCount = pGrid->GetPropertyCount();
 	if (nCount == 0) {
+		CDlgShowError err(_T("CMFCPropertyGridCtrl is empty"));
 		return;
 	}
 	

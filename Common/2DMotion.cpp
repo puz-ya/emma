@@ -90,8 +90,8 @@ bool CIO2DMotion::GetPos(DBL time, C2DPosition& pos)
 		if (time <= m_params()[i].GetExitTime())
 		{
 			pos.m_pos = dynamic_cast<C2DNode *>(m_nodes()[i])->GetPoint();
-			pos.m_angvel = 0;
-			pos.m_vel = Math::C2DPoint::Zero;
+			//pos.m_angvel = 0;
+			//pos.m_vel = Math::C2DPoint::Zero;
 			return true;
 		}
 	}
@@ -134,7 +134,9 @@ bool CIO2DMotion::CheckParams(){
 void CIO2DMotion::CalcTime(){
 
 	C2DPieceLinearFunction* vel = dynamic_cast<C2DPieceLinearFunction *>(m_vels()[0]);	// 0 - линейная скорость
-	
+	//m_args() - time
+	//m_values() - speed
+
 	for (size_t i = 1; i < GetNodeCount(); i++){
 
 		//Находим расстояние между соседними точками
@@ -147,7 +149,7 @@ void CIO2DMotion::CalcTime(){
 
 		//Устанавливаем вычисленное время в массив параметров C2DMotionParams
 		m_params()[i].SetEntrTime(vel->m_args().at(i));
-		m_params()[i].SetExitTime(m_params()[i].GetEntrTime());
+		m_params()[i].SetExitTime(m_params()[i].GetExitTime());
 
 	}
 }
