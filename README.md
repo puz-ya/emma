@@ -11,3 +11,5 @@ Including 2 projects:
 <img src="./Docs/screenshots/2016/03.PNG" width="200px" />
 <img src="./Docs/screenshots/2016/04.PNG" width="200px" />
 <img src="./Docs/screenshots/2016/05.PNG" width="200px" />
+<img src="./Docs/screenshots/2016/06.PNG" width="200px" />
+<img src="./Docs/screenshots/2016/07.PNG" width="200px" />
